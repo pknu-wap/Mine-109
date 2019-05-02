@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveScript : MonoBehaviour //MoveScript 이름은 스크립트 이름으로 바꿔서 적용시켜주세요
+public class Mouse : MonoBehaviour //MoveScript 이름은 스크립트 이름으로 바꿔서 적용시켜주세요
 {
     private Vector3 targetPos;
-    public float Range = 1000f;    
-    
+    public float Range =  1000f;
 
     void Start()
     {
-       
     }
 
     void Update()
@@ -23,10 +21,9 @@ public class MoveScript : MonoBehaviour //MoveScript 이름은 스크립트 이름으로 바
             if (Physics.Raycast(ray, out hit, Range)) //만약 Floor에 광선이 범위 안에서 맞았다면
             {
                 Debug.Log(hit.point); //광선 타격 지점의 좌표값을 표시
-                targetPos = hit.point; //좌표값 저장 변수               
+                      
 
-
-                this.transform.position = targetPos; //좌표값으로 물체 이동
+                this.transform.position = hit.transform.position+new Vector3(0,0.5f,0); //좌표값으로 물체 이동
             }
 
             else
