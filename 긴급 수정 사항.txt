@@ -1,0 +1,31 @@
+박스와 캐릭터 이동 간의 버그가 생겨서 수정했습니다.
+버그내용: 1.캐릭터가 박스를 클릭할시 박스를 하나의 물리적 물체로 여겨서 레이저가 땅을 향하지 않고 박스 위를 조준해 캐릭터가 박스 위로 올라가는
+	  상황이 발생하였습니다.
+             2.캐릭터에 충돌 감지 기능을 지닌 Collider 중 Box Collider 기능을 적용시키고 테스트 했더니 플레이어의 Collider을 물리적 물체로 여겨 
+               레이저가 플레이어의 머리 위를 조준해 플레이어가 계속 이동 전 플레이어의 머리 위로 움직이는 상황이 발생하였습니다.
+               (올린 소스트리의 프로젝트 파일 여서서 Black Stone Pawn을 클릭하시고 우측의 Inspector 창에 Add Component→Physics→Box Collder를 
+                고르신 후 Center 값을 X=0 Y=1 Z=0, Size 값을 X=1, Y=2, Z=1로 맞추신 후 게임 실행 후 제자리를 계속 클릭하시면 확인하실 수 있을거에요)
+ 해결 방법: 02. Scripts 폴더에서 MoveScript파일을 여신후 
+	       
+                    this.transform.position = hit.transform.position + new Vector3(0, 0.5f, 0);
+                    Debug.Log(this.transform.position);
+               이 부분을 삭제 후 
+                   
+                    float x = hit.transform.position.x + new Vector3(0, 0.5f, 0).x;
+                    float y = hit.transform.position.y + new Vector3(0, 0.5f, 0).y;
+                    float z = hit.transform.position.z + new Vector3(0, 0.5f, 0).z;
+
+                    this.transform.position = new Vector3(x, Mathf.Clamp(y, 0.5f, 0.5f), z);
+                    Debug.Log(this.transform.position); 
+               로 바꿔주세요.
+
+설명: float x = hit.transform.position.x + new Vector3(0, 0.5f, 0).x; //벡터를 x성분으로 표현하여 float 형에 저장 
+       float y = hit.transform.position.y + new Vector3(0, 0.5f, 0).y; //벡터를 y성분으로 표현하여 float 형에 저장
+       float z = hit.transform.position.z + new Vector3(0, 0.5f, 0).z; //벡터를 z성분으로 표현하여 float 형에 저장
+
+       this.transform.position = new Vector3(x, Mathf.Clamp(y, 0.5f, 0.5f), z); //float 형의 최소값, 최대값을 제한하는 함수인 Mathf.Clamp를 사용하여 y값을
+                                                                                                   0.5f가 넘지 않게 고침
+
+       Mathf.Clamp 함수의 원형은 public static float Clamp(float value, float min, float max);입니다. 아래 링크를 참조해 주세요. 
+
+참고 자료:https://docs.unity3d.com/kr/530/ScriptReference/Mathf.Clamp.html
