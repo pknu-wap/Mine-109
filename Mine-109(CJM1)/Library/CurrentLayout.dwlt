@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 919, y: 444}
   m_MaxSize: {x: 22014, y: 10022}
   vertical: 0
-  controlID: 92
+  controlID: 128
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 444}
   m_MaxSize: {x: 4002, y: 8044}
   vertical: 1
-  controlID: 49
+  controlID: 75
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 1.7914233, y: -2.2194235, z: 1.4260244}
     speed: 2
-    m_Value: {x: 1.7914233, y: -2.2194235, z: 1.4260244}
+    m_Value: {x: 0, y: -0.000000059604645, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -423,11 +423,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.47457016, y: 0.03879548, z: -0.020943359, w: 0.8791136}
     speed: 2
-    m_Value: {x: -0.47457018, y: -0.03879548, z: 0.020943359, w: -0.8791137}
+    m_Value: {x: 0.4745699, y: 0.038795456, z: -0.020943346, w: 0.8791131}
   m_Size:
     m_Target: 10.714118
     speed: 2
-    m_Value: 10.714118
+    m_Value: 18.740396
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -507,8 +507,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 48fbffff
-      m_LastClickedID: -1208
+      m_SelectedIDs: 
+      m_LastClickedID: 0
       m_ExpandedIDs: 8efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -571,13 +571,12 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/02. Scripts
+    - Assets/03. Prefabs
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: "C:\\Users\\Admin\\Desktop\\\uBC14\uD0D5\uD654\uBA74\\\uC790\uB8CC\uB4E4\\\uD559\uAD50\uC790\uB8CC\\\uB3D9\uC544\uB9AC\uC790\uB8CC\\\uC720\uB2C8\uD2F0
-    \uC790\uB8CC\\\uC720\uB2C8\uD2F0 \uD504\uB85C\uC81D\uD2B8\\Mine-109(CJM1)"
+  m_LastProjectPath: "C:\\Users\\Admin\\Desktop\\\uBC14\uD0D5\uD654\uBA74\\\uC790\uB8CC\uB4E4\\\uD559\uAD50\uC790\uB8CC\\\uB3D9\uC544\uB9AC\uC790\uB8CC\\\uAE43\uD5C8\uBE0C\\Mine-109\\Mine-109(CJM1)"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
@@ -612,21 +611,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000c8290000ee290000b82b0000522c0000e82c0000762d00008e2f00009a2f00008a3500008c3500008e35000090350000
+    m_ExpandedIDs: ffffffff00000000c8290000ee290000242a0000b82b0000522c0000e82c0000762d00008e2f00009a2f00008a3500008c3500008e35000090350000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: chess board
+      m_OriginalName: chess board
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 11420
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
