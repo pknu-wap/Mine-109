@@ -63,6 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\02. Scripts\MoveScript.cs" />
+    <Compile Include="Assets\02. Scripts\SpawnMgr.cs" />
+    <Compile Include="Assets\07. Assets\ChessTest\ChessTest\scripts\ChessBoard.cs" />
+    <Compile Include="Assets\07. Assets\ChessTest\ChessTest\scripts\ChessPiece.cs" />
+    <Compile Include="Assets\07. Assets\ChessTest\ChessTest\scripts\Controller.cs" />
+    <Compile Include="Assets\07. Assets\ChessTest\ChessTest\scripts\Game.cs" />
     <None Include="Assets\07. Assets\Tiny Chess Stone Chess Piece\Readme Eng.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Admin/Desktop/바탕화면/자료들/학교자료/동아리자료/깃허브/Mine-109/Mine-109(CJM1)/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

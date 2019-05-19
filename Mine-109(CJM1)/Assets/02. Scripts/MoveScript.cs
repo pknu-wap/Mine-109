@@ -7,12 +7,6 @@ public class MoveScript : MonoBehaviour
     private Vector3 targetPos;
     public float Range = 1000f;
 
-
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //메인카메라 화면의 마우스 클릭 지점에 광선을 발사
@@ -27,22 +21,18 @@ public class MoveScript : MonoBehaviour
                 float z = hit.transform.position.z + new Vector3(0, 0.5f, 0).z;
 
                 this.transform.position = new Vector3(x, Mathf.Clamp(y, 0.5f, 0.5f), z);
-                Debug.Log(this.transform.position);              
-                               
-            }
-        }
+                Debug.Log(this.transform.position);
 
-            else
-            {
-                Debug.Log("반드시 Floor 안을 클릭해야 합니다!"); //Floor에 광선이 맞지 않았을 경우
             }
         }
+    }
 
     void OnTriggerEnter(Collider other) //박스 습득 스크립트
     {
         if(other.gameObject.CompareTag("Box"))
         {
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
+            //other.gameObject.SetActive(false);
         }
     }
 }
