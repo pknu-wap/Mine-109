@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class SpawnMgr : MonoBehaviour
 {
+
+    public static SpawnMgr Instance;
+
     public Transform SpawnPoint;
 
     public GameObject boxPrefab;
 
-    public float createTime = 2.0f;
+    //public float createTime = 2.0f;
     public int maxBox = 10;
 
-    public bool isGameOver = false;
+    public bool isGameOver = false;    
 
     //Children만 데려오는 함수
     Transform[] GetChild(Transform parent)
@@ -29,6 +32,7 @@ public class SpawnMgr : MonoBehaviour
     }
     void Start()
     {
+        Instance = this;
         if (GetChild(SpawnPoint).Length > 0)
         {
             StartCoroutine(this.CreateBox());
@@ -37,31 +41,33 @@ public class SpawnMgr : MonoBehaviour
 
     IEnumerator CreateBox()
     {
+        //4개 생성 루프 
+        List<Transform> transforms = new List<Transform>();
+        transforms.AddRange(GetChild(SpawnPoint));
+        while (transforms.Count > 0)
+        {
+            //yield return new WaitForSeconds(createTime);
+            int idx = (int)(Random.value * (transforms.Count - 1));
+            Instantiate(boxPrefab, transforms[idx].position, transforms[idx].rotation);
+            transforms.RemoveAt(idx);
+            Debug.Log("idx = " + idx);
+            Debug.Log("transform.Count =" + transforms.Count);
+            
+            //4개 생성 완료+리스트 개수 0
+        }
         while (!isGameOver)
         {
-            int boxCount = (int)GameObject.FindGameObjectsWithTag("Box").Length;
-            
-            if (boxCount < maxBox)
-            {              
-                {
-                    List<Transform> transforms = new List<Transform>();
-                    transforms.AddRange(GetChild(SpawnPoint));
-                    while(transforms.Count>0)
-                    {
-                        yield return new WaitForSeconds(createTime);
-                        int idx = (int)(Random.value*(transforms.Count-1));
-                        Instantiate(boxPrefab, transforms[idx].position, transforms[idx].rotation);
-                        transforms.RemoveAt(idx);
-                        Debug.Log("idx = " + idx);
-                        Debug.Log("list = {" + transforms[idx] + "}");
-                    }
-                }
-            }
-
-            else
-            {
-                yield return null;
-            }
+            yield return null;
         }
+    }
+    public IEnumerator ReviveBox(GameObject box,float time)
+    {
+        box.SetActive(false);
+        while (time > 0)
+        {
+            time -= Time.deltaTime;
+            yield return null;
+        }
+        box.SetActive(true);
     }
 }

@@ -1,6 +1,5 @@
 sceneSetups:
-- path: "Assets/07. Assets/ChessTest/ChessTest/2019.5.15 - \uD604\uC7AC \uCCB4\uC2A4\uD310
-    \uAD6C\uD604, pawn \uBC94\uC704 \uC81C\uD55C, 1p2p \uAC00\uB2A5.unity"
+- path: Assets/01. Scenes/CJM1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

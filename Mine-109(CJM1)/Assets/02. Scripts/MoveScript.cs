@@ -7,6 +7,8 @@ public class MoveScript : MonoBehaviour
     private Vector3 targetPos;
     public float Range = 1000f;
 
+    public float BoxSpawnTime = 3.0f;
+
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //메인카메라 화면의 마우스 클릭 지점에 광선을 발사
@@ -31,8 +33,8 @@ public class MoveScript : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Box"))
         {
-            Destroy(other.gameObject);
-            //other.gameObject.SetActive(false);
+            SpawnMgr manager = SpawnMgr.Instance;
+            manager.StartCoroutine(manager.ReviveBox(other.gameObject, BoxSpawnTime));            
         }
     }
 }

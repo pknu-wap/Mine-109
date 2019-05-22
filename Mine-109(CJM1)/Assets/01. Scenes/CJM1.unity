@@ -380,7 +380,6 @@ MonoBehaviour:
   SpawnPoint: {fileID: 1873836823}
   boxPrefab: {fileID: 7542533139803946589, guid: dc803efc0f7cefa438b7ce2fe421ed65,
     type: 3}
-  createTime: 1
   maxBox: 4
   isGameOver: 0
 --- !u!4 &941854522
@@ -529,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Range: 1000
+  BoxSpawnTime: 10
 --- !u!54 &1642794082
 Rigidbody:
   m_ObjectHideFlags: 0
