@@ -1,5 +1,5 @@
 sceneSetups:
-- path: "Assets/2019.5.24 \uAE40\uB178\uC740(\uB9D0\uAD00\uB828) +\uCD5C\uC815\uBBFC(\uBC15\uC2A4\uAD00\uB828)
+- path: "Assets/01. Scenes/2019.5.24 \uAE40\uB178\uC740(\uB9D0\uAD00\uB828) +\uCD5C\uC815\uBBFC(\uBC15\uC2A4\uAD00\uB828)
     + \uC9C0\uB8B0 \uCD94\uAC00\uD558\uB294\uC911.unity"
   isLoaded: 1
   isActive: 1
