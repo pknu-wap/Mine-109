@@ -84,9 +84,8 @@ namespace ChessTest
             else if(other.gameObject.CompareTag("Bomb"))
             {
                 SpawnMgrbomb manager2 = SpawnMgrbomb.Instancebomb;
-                manager2.StartCoroutine(manager2.ReviveBomb(other.gameObject, BombSpawnTime));            }
-        }
-
-      
+                manager2.StartCoroutine(manager2.ReviveBomb(other.gameObject, BombSpawnTime));
+            }
         }
     }
+}

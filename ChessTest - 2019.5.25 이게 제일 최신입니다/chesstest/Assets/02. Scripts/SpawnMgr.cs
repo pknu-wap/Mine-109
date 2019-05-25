@@ -51,9 +51,7 @@ public class SpawnMgr : MonoBehaviour
             //yield return new WaitForSeconds(createTime);
             int idx = (int)(Random.value * (transforms.Count - 1));
             Instantiate(boxPrefab, transforms[idx].position, transforms[idx].rotation);
-            transforms.RemoveAt(idx);
-            Debug.Log("idx = " + idx);
-            Debug.Log("transform.Count =" + transforms.Count);
+            transforms.RemoveAt(idx);           
             
             //4개 생성 완료+리스트 개수 0
         }
