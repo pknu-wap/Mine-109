@@ -68,6 +68,7 @@ public class SpawnMgr : MonoBehaviour
             time -= Time.deltaTime;
             yield return null;
         }
+
         box.SetActive(true);
     }
 }
