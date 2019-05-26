@@ -65,12 +65,12 @@
     <Compile Include="Assets\02. Scripts\ChessBoard.cs" />
     <Compile Include="Assets\02. Scripts\ChessPiece.cs" />
     <Compile Include="Assets\02. Scripts\Controller.cs" />
-    <Compile Include="Assets\02. Scripts\DoorController.cs" />
     <Compile Include="Assets\02. Scripts\Game.cs" />
     <Compile Include="Assets\02. Scripts\SpawnMgr.cs" />
     <Compile Include="Assets\02. Scripts\SpawnMgrbomb.cs" />
+    <Compile Include="Assets\Tim's Assets\Doors\DoorController.cs" />
     <None Include="Assets\07. Assets\Tiny Chess Stone Chess Piece\Readme Eng.txt" />
-    <None Include="Assets\07. Assets\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
+    <None Include="Assets\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Admin/Desktop/바탕화면/자료들/학교자료/동아리자료/깃허브/Mine-109/ChessTest - 2019.5.25 이게 제일 최신입니다/chesstest/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
