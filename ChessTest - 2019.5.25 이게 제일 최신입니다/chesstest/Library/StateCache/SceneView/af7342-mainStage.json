@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":6.815174102783203,"y":-2.5489449501037599,"z":7.950478553771973},"rotation":{"x":-0.39860039949417117,"y":-0.24233578145503999,"z":0.11005885899066925,"w":-0.8776602149009705},"size":14.155588150024414,"orthographic":false}
 =======
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":3.2513275146484377,"y":2.398571491241455,"z":7.4868879318237309},"rotation":{"x":-0.3832469880580902,"y":-0.0022196772042661907,"z":0.0009207944385707378,"w":-0.923644483089447},"size":1.8255400657653809,"orthographic":false}
@@ -7,3 +8,6 @@
 =======
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":0.6374545693397522,"y":-2.294567584991455,"z":2.389254570007324},"rotation":{"x":-0.41853436827659609,"y":0.04138762131333351,"z":-0.019097276031970979,"w":-0.9070580005645752},"size":10.969222068786621,"orthographic":false}
 >>>>>>> parent of b9a4330... 문이 안보여서 다시 수정하여 올립니다.
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":3.366816759109497,"y":-3.1988370418548586,"z":-0.4837988018989563},"rotation":{"x":-0.21260054409503938,"y":0.7799537181854248,"z":-0.4726414382457733,"w":-0.3508339524269104},"size":8.067209243774414,"orthographic":false}
+>>>>>>> parent of 7e33bb1... 오류 수정 완료했습니다. 2019/05/25
