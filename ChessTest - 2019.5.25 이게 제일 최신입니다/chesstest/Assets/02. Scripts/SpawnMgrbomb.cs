@@ -51,9 +51,7 @@ public class SpawnMgrbomb : MonoBehaviour
             int idxbomb = (int)(Random.value * (transforms.Count - 1));
             Instantiate(bombPrefab, transforms[idxbomb].position, transforms[idxbomb].rotation);
             transforms.RemoveAt(idxbomb);
-            Debug.Log("idxbomb = " + idxbomb);
-            Debug.Log("transform.Count =" + transforms.Count);
-
+            
             //4개 생성 완료+리스트 개수 0
         }
         while (!isGameOver)
