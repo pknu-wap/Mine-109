@@ -62,13 +62,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\02. Scripts\Boxkey.cs" />
     <Compile Include="Assets\02. Scripts\ChessBoard.cs" />
     <Compile Include="Assets\02. Scripts\ChessPiece.cs" />
     <Compile Include="Assets\02. Scripts\Controller.cs" />
     <Compile Include="Assets\02. Scripts\DoorController.cs" />
     <Compile Include="Assets\02. Scripts\Game.cs" />
-    <Compile Include="Assets\02. Scripts\random.cs" />
+    <Compile Include="Assets\02. Scripts\Random.cs" />
     <Compile Include="Assets\07. Assets\Simple Explosion\Demo\Script (for Demo)\ExplosionControl.cs" />
     <Compile Include="Assets\07. Assets\Simple Explosion\Scripts\GraphicExplosion.cs" />
     <Compile Include="Assets\07. Assets\Simple Explosion\Scripts\light_control.cs" />

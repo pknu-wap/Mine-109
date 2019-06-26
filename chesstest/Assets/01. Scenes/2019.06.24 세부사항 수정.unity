@@ -140,11 +140,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   board: {fileID: 890764151}
   game: {fileID: 1467109116}
+  Random: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   BoxSpawnTime: 3
   BombSpawnTime: 3
   ExplosionPrefab: {fileID: 1000010608846784, guid: 6747b1742d70743a8aff8594e708b2f7,
     type: 3}
+  playerAvatar: {fileID: 98770030}
+  playerHp: 100
+  explosionDemage: 100
+  shieldOn: 0
+  shieldCount: 1
+  getkey: 0
 --- !u!23 &98770032
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -420,8 +427,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieces: []
   prefab: {fileID: 114085760183488954, guid: d8743f14d1f3d15419d3581120534753, type: 3}
-  white: {fileID: 2100000, guid: 1f3a8ff250508f642aaa7b710d504e0d, type: 2}
-  black: {fileID: 2100000, guid: abc880bf623fb434c94d9e7d6d5a8790, type: 2}
+  white: {fileID: 0}
+  black: {fileID: 0}
   size: 8
 --- !u!1 &981044920
 GameObject:
@@ -584,11 +591,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   board: {fileID: 890764151}
   game: {fileID: 1467109116}
-  color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
+  Random: {fileID: 0}
+  color: {r: 0.7607843, g: 0.7607843, b: 0.7607843, a: 0}
   BoxSpawnTime: 3
   BombSpawnTime: 3
   ExplosionPrefab: {fileID: 1000010608846784, guid: 6747b1742d70743a8aff8594e708b2f7,
     type: 3}
+  playerAvatar: {fileID: 1526857328}
+  playerHp: 100
+  explosionDemage: 100
+  shieldOn: 0
+  shieldCount: 1
+  getkey: 0
 --- !u!23 &1526857330
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -687,6 +701,8 @@ MonoBehaviour:
   boxprefab: {fileID: 4567092501344757341, guid: dc803efc0f7cefa438b7ce2fe421ed65,
     type: 3}
   bombprefab: {fileID: 3835028333679810628, guid: aa64b9ae639024c5097e12b27ac1d84c,
+    type: 3}
+  keyprefab: {fileID: 283312694755160522, guid: fd28ce06809ea4843a1908be4432ad21,
     type: 3}
 --- !u!4 &1567964288
 Transform:

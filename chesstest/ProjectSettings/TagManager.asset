@@ -9,6 +9,7 @@ TagManager:
   - player
   - CanDestroy
   - Explosion
+  - Key
   layers:
   - Default
   - TransparentFX

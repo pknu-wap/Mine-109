@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class random : MonoBehaviour
+public class Random : MonoBehaviour
 {
     public GameObject boxprefab;
     public GameObject bombprefab;
-    public static random Instance;
-    public static random Instancebomb;
+    public GameObject keyprefab;
+
+    public static Random Instance;
+    public static Random Instancebomb;
     public string[,] BoxState = new string[8, 8];
+    int i;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +32,10 @@ public class random : MonoBehaviour
     }
     void CreateBox()
     {
-        int i;
+
         for (i = 0; i < 4;)
         {
-            if (SetBox((int)Random.Range(0f, 7f), (int)Random.Range(0f, 7f)))
+            if (SetBox((int)UnityEngine.Random.Range(0f, 7f), (int)UnityEngine.Random.Range(0f, 7f)))
             {
                 i++;
             }
@@ -50,8 +53,13 @@ public class random : MonoBehaviour
 
         if (BoxState[x, y] == "o")
         {
-            Instantiate(boxprefab, new Vector3(x, 0.3f, y), Quaternion.Euler(new Vector3(-90, 0, 0)));            
-
+            Instantiate(boxprefab, new Vector3(x, 0.3f, y), Quaternion.Euler(90,0,0));
+            if (i == 0)
+            {
+                Instantiate(keyprefab, new Vector3(x, 0, y), Quaternion.identity);
+                Debug.Log(new Vector3(x, 0, y));
+                // Vector3 firstbox = new Vector3(x, 0, y);
+            }
             BoxState[x, y] = "x";
             return true;
         }
@@ -61,8 +69,8 @@ public class random : MonoBehaviour
     void CreateBomb()
     {
         for (int i = 0; i < 10;)
-        {   
-            if (SetBomb((int)Random.Range(0f, 7f), (int)Random.Range(0f, 7f)))
+        {
+            if (SetBomb((int)UnityEngine.Random.Range(0f, 7f), (int)UnityEngine.Random.Range(0f, 7f)))
             {
                 i++;
             }
