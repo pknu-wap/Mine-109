@@ -28,6 +28,16 @@ namespace ChessTest
         //쉴드 개수
         public int shieldCount = 1;
 
+        //지뢰 개수 표시
+        public GameObject BTDUp;
+        public GameObject BTDLeft;
+        public GameObject BTDDown;
+        public GameObject BTDRight;
+        /*public GameObject WTDUp;
+        public GameObject WTDLeft;
+        public GameObject WTDDown;
+        public GameObject WTDRight;*/
+
         //열쇠
         public bool getkey = false;
 
@@ -59,9 +69,7 @@ namespace ChessTest
         public void Update()
         {            
             if (nowPlaying)
-            {
-                //폭탄스캔
-                BombScanner();
+            {              
 
                 if (Input.GetKeyDown(KeyCode.W))
                 {//위로 이동
@@ -83,7 +91,9 @@ namespace ChessTest
                 {//확정 & 다음턴 넘기기
                     game.NextTurn();
                 }
-               
+
+                //폭탄스캔
+                ScanBomb();               
                 //쉴드발동
                 Shield();
                 //플레이어 사망
@@ -174,100 +184,48 @@ namespace ChessTest
                 }
             }
         }
+        //폭탄스캔
+        public void ScanBomb()
+        {
+            GameObject[] Bombs = GameObject.FindGameObjectsWithTag("Bomb");
+            int up = 0, down = 0, left = 0, right = 0;
+            Vector3 nowPosition = playerAvatar.transform.position;
+                     
 
-        //폭탄 스캐너
-        public void BombScanner()
-        {           
-            Vector3 PlayerPosition = playerAvatar.transform.position;
-            GameObject[] Bomb = GameObject.FindGameObjectsWithTag("Bomb");
-            List<GameObject> GoodBomb = new List<GameObject>();
-
-            //상하좌우
-            //상
-            List<GameObject> UpBomb = new List<GameObject>();
-            //좌
-            List<GameObject> LeftBomb = new List<GameObject>();
-            //하
-            List<GameObject> DownBomb = new List<GameObject>();
-            //우
-            List<GameObject> RightBomb = new List<GameObject>();
-
-            int BombCount = Bomb.Length;
-            for (int i = 0; i < BombCount; i++)
+            foreach (GameObject b in Bombs)
             {
-                Vector3 BombPosition = Bomb[i].transform.position;
-                float BombDistance = Vector3.Distance(BombPosition, PlayerPosition);
-
-                if(BombDistance <= Mathf.Sqrt(2))
+                if ((b.transform.position - nowPosition).magnitude <= Mathf.Sqrt(2))
                 {
-                    GoodBomb.Add(Bomb[i]);
-                }                
+                    float xdiff = b.transform.position.x - nowPosition.x;
+                    float zdiff = b.transform.position.z - nowPosition.z;
+                    if (xdiff >= 1) right++;
+                    if (xdiff <= -1) left++;
+                    if (zdiff >= 1) up++;
+                    if (zdiff <= -1) down++;
+                }
             }
 
-            for (int j = 0; j < GoodBomb.Count; j++)
-            {
-                Vector3 GoodBombPosition = GoodBomb[j].transform.position;
-                //폭탄 벡터와 플레이어 벡터의 차
-                Vector3 DistanceVector = GoodBombPosition - PlayerPosition;
+            BTDUp.GetComponent<TextMesh>().text = up.ToString();
+            BTDLeft.GetComponent<TextMesh>().text = left.ToString();
+            BTDDown.GetComponent<TextMesh>().text = down.ToString();
+            BTDRight.GetComponent<TextMesh>().text = right.ToString();
+            /*WTDUp.GetComponent<TextMesh>().text = up.ToString();
+            WTDLeft.GetComponent<TextMesh>().text = left.ToString();
+            WTDDown.GetComponent<TextMesh>().text = down.ToString();
+            WTDRight.GetComponent<TextMesh>().text = right.ToString();*/
 
-                //상
-                Vector3 upVector = (PlayerPosition + new Vector3(1, 0, 1)) - PlayerPosition;
-                //좌
-                Vector3 LeftVector = (PlayerPosition + new Vector3(-1, 0, 1)) - PlayerPosition;
-                //하
-                Vector3 DownVector = (PlayerPosition + new Vector3(-1, 0, -1)) - PlayerPosition;
-                //우
-                Vector3 RightVector = (PlayerPosition + new Vector3(-1, 0, 1)) - PlayerPosition;
+            BTDUp.transform.position = nowPosition + new Vector3(0, 0, 1);
+            BTDLeft.transform.position = nowPosition + new Vector3(-1, 0, 0);
+            BTDDown.transform.position = nowPosition + new Vector3(0, 0, -1);
+            BTDRight.transform.position = nowPosition + new Vector3(1, 0, 0);
+            /*WTDUp.transform.position = nowPosition + new Vector3(0, 0, 1);
+            WTDLeft.transform.position = nowPosition + new Vector3(-1, 0, 0);
+            WTDDown.transform.position = nowPosition + new Vector3(0, 0, -1);
+            WTDRight.transform.position = nowPosition + new Vector3(1, 0, 0);*/
 
-                //상 코사인 값
-                float Uptheta = Vector3.Dot(DistanceVector, upVector) / (DistanceVector.magnitude * upVector.magnitude);
-                //좌 코사인 값
-                float Lefttheta = Vector3.Dot(DistanceVector, LeftVector) / (DistanceVector.magnitude * LeftVector.magnitude);
-                //하 코사인 값
-                float Downtheta = Vector3.Dot(DistanceVector, DownVector) / (DistanceVector.magnitude * DownVector.magnitude);
-                //우 코사인 값
-                float Righttheta = Vector3.Dot(DistanceVector, RightVector) / (DistanceVector.magnitude * RightVector.magnitude);
 
-                //상 각도
-                float UpAngle = Mathf.Acos(Uptheta) * Mathf.Rad2Deg;
-                //좌 각도
-                float LeftAngle = Mathf.Acos(Lefttheta) * Mathf.Rad2Deg;
-                //하 각도
-                float DownAngle = Mathf.Acos(Downtheta) * Mathf.Rad2Deg;
-                //우 각도
-                float RightAngle = Mathf.Acos(Righttheta) * Mathf.Rad2Deg;
 
-                //상 반시계
-                float UpCounterClockWise = Vector3.Cross(DistanceVector, upVector).y;
-                //좌 반시계
-                float LeftCounterClockWise = Vector3.Cross(DistanceVector, LeftVector).y;
-                //하 반시계
-                float DownCounterClockWise = Vector3.Cross(DistanceVector, DownVector).y;
-                //우 반시계
-                float RightCounterClockWise = Vector3.Cross(DistanceVector, RightVector).y;
-
-                if (UpCounterClockWise > 0 && UpAngle <= 90 && UpAngle >=0)
-                {
-                    UpBomb.Add(Bomb[j]);
-                }
-
-                else if (LeftCounterClockWise > 0 && LeftAngle <= 90 && LeftAngle >=0)
-                {
-                    LeftBomb.Add(Bomb[j]);
-                }
-
-                else if (DownCounterClockWise > 0 && DownAngle <= 90 && DownAngle >= 0)
-                {
-                    DownBomb.Add(Bomb[j]);
-                }
-
-                else if (RightCounterClockWise > 0 && RightAngle <= 90 && RightAngle >= 0)
-                {
-                    RightBomb.Add(Bomb[j]);
-                }                
-            }
-
-            Debug.Log(playerAvatar + "의 주변의 폭탄 갯수는" + "상" + UpBomb.Count + "좌" + LeftBomb.Count + "하" + DownBomb.Count + "우" + RightBomb.Count);
+            Debug.Log(playerAvatar + "플레이어 주위의 폭탄의 갯수는" + "상" + up + "좌" + left + "하" + down + "우" + right + "입니다");
         }
 
         public void PlayerDie()
